@@ -527,7 +527,7 @@ Storing your private keys in a Git repo may sound off-putting at first. We did a
 
 ### Google Cloud Storage
 
-All your keys and provisioning profiles are encrypted using Google managed keys. 
+All your keys and provisioning profiles are encrypted using Google managed keys.
 
 ### What could happen if someone stole a private key?
 
@@ -594,7 +594,7 @@ match   # alias for "sync_code_signing"
 Key | Description | Default
 ----|-------------|--------
   `type` | Define the profile type, can be appstore, adhoc, development, enterprise, developer_id | `development`
-  `additional_cert_types` | Create additional cert types needed for macOS installers (valid values: mac_installer_distribution, developer_id_installer) | 
+  `additional_cert_types` | Create additional cert types needed for macOS installers (valid values: mac_installer_distribution, developer_id_installer) |
   `readonly` | Only fetch existing certificates and profiles, don't generate new ones | `false`
   `generate_apple_certs` | Create a certificate type for Xcode 11 and later (Apple Development or Apple Distribution) | [*](#parameters-legend-dynamic)
   `skip_provisioning_profiles` | Skip syncing provisioning profiles | `false`
@@ -603,31 +603,32 @@ Key | Description | Default
   `team_id` | The ID of your Developer Portal team if you're in multiple teams | [*](#parameters-legend-dynamic)
   `team_name` | The name of your Developer Portal team if you're in multiple teams | [*](#parameters-legend-dynamic)
   `storage_mode` | Define where you want to store your certificates | `git`
-  `git_url` | URL to the git repo containing all the certificates | 
+  `git_url` | URL to the git repo containing all the certificates |
   `git_branch` | Specific git branch to use | `master`
-  `git_full_name` | git user full name to commit | 
-  `git_user_email` | git user email to commit | 
+  `git_full_name` | git user full name to commit |
+  `git_user_email` | git user email to commit |
   `shallow_clone` | Make a shallow clone of the repository (truncate the history to 1 revision) | `false`
   `clone_branch_directly` | Clone just the branch specified, instead of the whole repo. This requires that the branch already exists. Otherwise the command will fail | `false`
-  `git_basic_authorization` | Use a basic authorization header to access the git repo (e.g.: access via HTTPS, GitHub Actions, etc), usually a string in Base64 | 
-  `git_bearer_authorization` | Use a bearer authorization header to access the git repo (e.g.: access to an Azure Devops repository), usually a string in Base64 | 
-  `google_cloud_bucket_name` | Name of the Google Cloud Storage bucket to use | 
-  `google_cloud_keys_file` | Path to the gc_keys.json file | 
-  `google_cloud_project_id` | ID of the Google Cloud project to use for authentication | 
-  `s3_region` | Name of the S3 region | 
-  `s3_access_key` | S3 access key | 
-  `s3_secret_access_key` | S3 secret access key | 
-  `s3_bucket` | Name of the S3 bucket | 
+  `git_basic_authorization` | Use a basic authorization header to access the git repo (e.g.: access via HTTPS, GitHub Actions, etc), usually a string in Base64 |
+  `git_bearer_authorization` | Use a bearer authorization header to access the git repo (e.g.: access to an Azure Devops repository), usually a string in Base64 |
+  `google_cloud_bucket_name` | Name of the Google Cloud Storage bucket to use |
+  `google_cloud_keys_file` | Path to the gc_keys.json file |
+  `google_cloud_project_id` | ID of the Google Cloud project to use for authentication |
+  `s3_region` | Name of the S3 region |
+  `s3_access_key` | S3 access key |
+  `s3_secret_access_key` | S3 secret access key |
+  `s3_bucket` | Name of the S3 bucket |
   `keychain_name` | Keychain the items should be imported to | `login.keychain`
-  `keychain_password` | This might be required the first time you access certificates on a new mac. For the login/default keychain this is your account password | 
+  `keychain_password` | This might be required the first time you access certificates on a new mac. For the login/default keychain this is your account password |
   `force` | Renew the provisioning profiles every time you run match | `false`
   `force_for_new_devices` | Renew the provisioning profiles if the device count on the developer portal has changed. Ignored for profile type 'appstore' | `false`
   `skip_confirmation` | Disables confirmation prompts during nuke, answering them with yes | `false`
   `skip_docs` | Skip generation of a README.md for the created git repository | `false`
   `platform` | Set the provisioning profile's platform to work with (i.e. ios, tvos, macos) | `ios`
-  `template_name` | The name of provisioning profile template. If the developer account has provisioning profile templates (aka: custom entitlements), the template name can be found by inspecting the Entitlements drop-down while creating/editing a provisioning profile (e.g. "Apple Pay Pass Suppression Development") | 
-  `output_path` | Path in which to export certificates, key and profile | 
+  `template_name` | The name of provisioning profile template. If the developer account has provisioning profile templates (aka: custom entitlements), the template name can be found by inspecting the Entitlements drop-down while creating/editing a provisioning profile (e.g. "Apple Pay Pass Suppression Development") |
+  `output_path` | Path in which to export certificates, key and profile |
   `verbose` | Print out extra information and all commands | `false`
+  `profile_name` | A custom name for the provisioning profile. This will replace the default provisioning profile name if specified |
 
 <em id="parameters-legend-dynamic">* = default value is dependent on the user's system</em>
 
@@ -640,7 +641,7 @@ Key | Description | Default
 
 Actions can communicate with each other using a shared hash `lane_context`, that can be accessed in other actions, plugins or your lanes: `lane_context[SharedValues:XYZ]`. The `match` action generates the following Lane Variables:
 
-SharedValue | Description 
+SharedValue | Description
 ------------|-------------
   `SharedValues::MATCH_PROVISIONING_PROFILE_MAPPING` | The match provisioning profile mapping
   `SharedValues::SIGH_PROFILE_TYPE` | The profile type, can be appstore, adhoc, development, enterprise
